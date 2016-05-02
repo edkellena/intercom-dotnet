@@ -36,7 +36,7 @@ namespace Library.Clients
 
         public Admins List (Dictionary<String, String> parameters)
         {
-            if (parameters)
+            if (parameters == null)
             {
                 throw new ArgumentNullException ("'parameters' argument is null.");
             }
