@@ -41,7 +41,7 @@ namespace Library.Test
         [ExpectedException(typeof(ArgumentNullException))]
         public void ListByEmail_NoEmail_ThrowException()
         {
-            contactsClient.List(null);
+            contactsClient.List(String.Empty);
         }
 
         [Test()]

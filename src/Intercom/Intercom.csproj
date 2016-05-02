@@ -119,6 +119,7 @@
     <Compile Include="Converters\ClassConverters\AppCountJsonConverter.cs" />
     <Compile Include="Exceptions\GenericException.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
+    <Compile Include="Exceptions\JsonConverterException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
