@@ -154,13 +154,13 @@ namespace Library.Clients
         }
 
         // TODO: Implement paging (by Pages argument)
-        public Users Next(Pages pages)
+        private Users Next(Pages pages)
         {
             return null;
         }
 
         // TODO: Implement paging
-        public Users Next(int page = 1, int perPage = 50, OrderBy orderBy = OrderBy.Dsc, String sortBy = UserSortBy.created_at)
+        private Users Next(int page = 1, int perPage = 50, OrderBy orderBy = OrderBy.Dsc, String sortBy = UserSortBy.created_at)
         {
             return null;
         }

@@ -119,6 +119,23 @@ namespace Library.Clients
             return result.Result;
         }
 
+        public Contacts List(Dictionary<String, String> parameters)
+        {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException("'parameters' argument is null.");
+            }
+
+            if (!parameters.Any())
+            {
+                throw new ArgumentException ("'parameters' argument is empty.");
+            }
+
+            ClientResponse<Contacts> result = null;
+            result = Get<Contacts>(parameters: parameters);
+            return result.Result;
+        }
+
         public Contact Delete (Contact contact)
         {
             if (contact == null) {
@@ -152,7 +169,7 @@ namespace Library.Clients
         }
 
         // TODO: Implement converting a lead into a user
-        public User Convert(Contact contact)
+        private User Convert(Contact contact)
         {
             throw new NotImplementedException();
         }

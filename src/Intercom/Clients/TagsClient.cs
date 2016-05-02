@@ -114,6 +114,23 @@ namespace Library.Clients
             return result.Result;
         }
 
+        public Tags List(Dictionary<String, String> parameters)
+        {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException("'parameters' argument is null.");
+            }
+
+            if (!parameters.Any())
+            {
+                throw new ArgumentException ("'parameters' argument is empty.");
+            }
+
+            ClientResponse<Tags> result = null;
+            result = Get<Tags>(parameters: parameters);
+            return result.Result;
+        }
+
         public void Delete(Tag tag)
         {
             if (tag == null)

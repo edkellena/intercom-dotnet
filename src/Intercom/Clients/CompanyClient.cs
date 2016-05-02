@@ -134,7 +134,7 @@ namespace Library.Clients
 
             if (!parameters.Any())
             {
-                throw new ArgumentException("'parameters' argument should include company_id parameter.");
+                throw new ArgumentException ("'parameters' argument is empty.");
             }
 
             ClientResponse<Companies> result = null;

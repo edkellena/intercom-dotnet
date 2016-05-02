@@ -34,6 +34,23 @@ namespace Library.Clients
             return result.Result;
         }
 
+        public Admins List (Dictionary<String, String> parameters)
+        {
+            if (parameters)
+            {
+                throw new ArgumentNullException ("'parameters' argument is null.");
+            }
+
+            if (!parameters.Any())
+            {
+                throw new ArgumentException ("'parameters' argument is empty.");
+            }
+
+            ClientResponse<Admins> result = null;
+            result = Get<Admins> ();
+            return result.Result;
+        }
+
         public Admin View (String id)
         {
             if (String.IsNullOrEmpty(id))

@@ -118,5 +118,7 @@ namespace Library.Clients
 
             return result.Result;
         }
+
+        // TODO: Add List function for Notes to allow pagination
     }
 }

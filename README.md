@@ -6,6 +6,7 @@
  - [Resources](#resources)
  - [Authorization](#authorization)
  - [Usage](#usage)
+ - [Idioms](#idioms)
 
 
 ## Add a dependency
@@ -369,5 +370,11 @@ UserConversationReply user_reply =
 ### Webhooks
 
 ### Bulk APIs
+
+## Resources
+
+### Exceptions
+
+### Pagination
 
 

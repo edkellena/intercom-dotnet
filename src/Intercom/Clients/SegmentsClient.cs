@@ -48,6 +48,23 @@ namespace Library.Clients
             return result.Result;
         }
 
+        public Segments List(Dictionary<String, String> parameters)
+        {
+            if (parameters == null)
+            {
+                throw new ArgumentNullException("'parameters' argument is null.");
+            }
+
+            if (!parameters.Any())
+            {
+                throw new ArgumentException ("'parameters' argument is empty.");
+            }
+
+            ClientResponse<Segments> result = null;
+            result = Get<Segments>(parameters: parameters);
+            return result.Result;
+        }
+
         public Segment View(String id)
         {
             if (String.IsNullOrEmpty(id))
