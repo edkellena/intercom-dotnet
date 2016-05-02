@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     
-    
+    <Compile Include="TestBase.cs" />
     <Compile Include="Core\ClientTest.cs" />
     <Compile Include="Clients\UserClientTest.cs" />
     <Compile Include="Clients\ContactClientTest.cs" />
