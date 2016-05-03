@@ -1,16 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using Library.Clients;
+using Library.Core;
 using Library.Core;
 using Library.Data;
-
-
-using Library.Clients;
-
 using Library.Exceptions;
-
-using Library.Core;
-using System.Collections.Generic;
-using System.Collections;
-using System.IO;
 
 namespace Library.Data
 {
