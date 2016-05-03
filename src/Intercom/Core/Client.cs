@@ -53,7 +53,6 @@ namespace Library.Core
             String resource = null)
 			where T : class
         {
-
             ClientResponse<T> clientResponse = null;
 
             try
@@ -63,9 +62,17 @@ namespace Library.Core
                 IRestResponse response = client.Execute(request);
                 clientResponse = HandleResponse<T>(response);
             }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}",
                         "GET", URL, RESRC, resource), ex); 
             }
@@ -97,15 +104,19 @@ namespace Library.Core
                 IRestResponse response = client.Execute(request);
                 clientResponse = HandleResponse <T>(response);
             }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}, Body: {4}",
                         "POST", URL, RESRC, resource, body), ex); 
-            }
-            finally
-            {
-                AssertIfAnyErrors(clientResponse);
             }
 
             return clientResponse;
@@ -132,15 +143,19 @@ namespace Library.Core
                 IRestResponse response = client.Execute(request);
                 clientResponse = HandleResponse <T>(response);
             }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}, Body-Type: {4}",
                         "POST", URL, RESRC, resource, typeof(T)), ex); 
-            }
-            finally
-            {
-                AssertIfAnyErrors(clientResponse);
             }
 
             return clientResponse;
@@ -166,15 +181,19 @@ namespace Library.Core
                 IRestResponse response = client.Execute(request);
                 clientResponse = HandleResponse <T>(response);
             }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}, Body: {4}",
                         "POST", URL, RESRC, resource, body), ex); 
-            }
-            finally
-            {
-                AssertIfAnyErrors(clientResponse);
             }
 
             return clientResponse;
@@ -201,9 +220,17 @@ namespace Library.Core
                 IRestResponse response = client.Execute(request);
                 clientResponse = HandleResponse <T>(response);
             }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}",
                         "POST", URL, RESRC, resource), ex); 
             }
@@ -228,19 +255,23 @@ namespace Library.Core
                 IRestClient client = BuildClient();
                 IRestRequest request = BuildRequest(httpMethod: Method.DELETE, headers: headers, parameters: parameters, resource: resource);
                 IRestResponse response = client.Execute(request);
-                return HandleResponse<T>(response);
+                clientResponse = HandleResponse<T>(response);
+            }
+            catch(ApiException ex)
+            {
+                throw ex;
+            }
+            catch (JsonConverterException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
-                throw new GenericException(String.Format("An exception occurred " +
+                throw new IntercomException(String.Format("An exception occurred " +
                         "while calling the endpoint. Method: {0}, Url: {1}, Resource: {2}, Sub-Resource: {3}",
                         "POST", URL, RESRC, resource), ex); 
             }
-            finally
-            {
-                AssertIfAnyErrors(clientResponse);
-            }
-
+        
             return clientResponse;
         }
 
@@ -321,6 +352,8 @@ namespace Library.Core
                 clientResponse = HandleNormalResponse <T>(response) as ClientResponse<T>;
             else
                 clientResponse = HandleErrorResponse <T>(response) as ClientResponse<T>;
+
+            AssertIfAnyErrors(clientResponse);
 
             return clientResponse;
         }

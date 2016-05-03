@@ -7,10 +7,10 @@
  - [Authorization](#authorization)
  - [Usage](#usage)
  - [Idioms](#idioms)
+ - [Roadmap](#roadmap)
 
 
 ## Add a dependency
-
 
 ### nuget
 
@@ -371,10 +371,17 @@ UserConversationReply user_reply =
 
 ### Bulk APIs
 
-## Resources
+## Idioms
 
 ### Exceptions
 
 ### Pagination
 
+## Roadmap
 
+- Support Pagination
+- Support Bulk Apis
+- Support Webhooks
+- Support Async
+- More Integration tests
+- Remove RestSharp dependency
